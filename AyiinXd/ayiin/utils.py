@@ -58,14 +58,14 @@ async def autopilot():
     try:
         r = await bot(
             CreateChannelRequest(
-                title="ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ʟᴏɢs",
-                about="» Group log Created by: ALBY-Userbot\n\n» Support : @ruangdiskusikami\n» UPDATES: @ruangprojects",
+                title="Alby - Userbot Lᴏɢs",
+                about="» Group log Created by: Alby Userbot\n\n» Support : @ruangdiskusikami\n» Support: @ruangprojects",
                 megagroup=True,
             ),
         )
     except ChannelsTooMuchError:
         LOGS.info(
-            "Terlalu banyak channel dan grup, hapus salah satu dan restart lagi"
+            "Channel dan Group Lu Banyak Tod, Hapus Salah Satu Dan Restart Lagi"
         )
         exit(1)
     except BaseException:
@@ -77,7 +77,7 @@ async def autopilot():
     channel = get_peer_id(chat)
     if isinstance(chat.photo, ChatPhotoEmpty):
         photo = await download_file(
-            "https://telegra.ph/file/cbe826936d4de9ec1838a.jpg", "ALBY.jpg"
+            "https://telegra.ph/file/f0383ed4de3a719e2eada.jpg", "photoyins.jpg"
         )
         ll = await bot.upload_file(photo)
         try:
@@ -98,15 +98,15 @@ async def autobot():
     await bot.start()
     await asyncio.sleep(15)
     await bot.send_message(
-        BOTLOG_CHATID, "**TUNGGU SEBENTAR SEDANG MEMBUAT ASSISTANT BOT ANDA DI @BotFather**"
+        BOTLOG_CHATID, "**SABAR SAYANG LAGI BUAT ASSISTANT BOT KAMU DI @BotFather**"
     )
-    LOGS.info("TUNGGU SEBENTAR. SEDANG MEMBUAT ASSISTANT BOT UNTUK ANDA")
+    LOGS.info("TUNGGU SEBENTAR SAYANG. SEDANG MEMBUAT ASSISTANT BOT UNTUK KAMU")
     who = await bot.get_me()
     name = f"{who.first_name} Assistant Bot"
     if who.username:
         username = f"{who.username}_bot"
     else:
-        username = f"alby{(str(who.id))[5:]}bot"
+        username = f"Kazu{(str(who.id))[5:]}bot"
     bf = "@BotFather"
     await bot(UnblockRequest(bf))
     await bot.send_message(bf, "/cancel")
@@ -134,10 +134,10 @@ async def autobot():
             )
             sys.exit(1)
     filogo = random.choice(
-        [
-            "https://telegra.ph/file/cbe826936d4de9ec1838a.jpg",
-            "AyiinXd/resources/ALBY.jpg",
-        ]
+          [
+              "https://telegra.ph/file/4a7e1523892f591dd7158.jpg",
+              "AyiinXd/resources/logo.jpg",
+          ]
     )
     await bot.send_message(bf, username)
     await asyncio.sleep(1)
@@ -145,7 +145,7 @@ async def autobot():
     await bot.send_read_acknowledge("botfather")
     if isdone.startswith("Sorry,"):
         ran = randint(1, 100)
-        username = f"alby{str(who.id)[6:]}{ran}bot"
+        username = f"Kazu{str(who.id)[6:]}{ran}bot"
         await bot.send_message(bf, username)
         await asyncio.sleep(1)
         nowdone = (await bot.get_messages(bf, limit=1))[0].text
@@ -174,17 +174,17 @@ async def autobot():
             await bot.send_message(bf, f"@{username}")
             await asyncio.sleep(1)
             await bot.send_message(
-                bf, f"✨ Owner ~ {who.first_name} ✨\n\n✨ Powered By ~ @ruangprojects ✨"
+                bf, f"✨ Owner ~ {who.first_name} ✨\n\n✨ Powered By ~ @Html12text ✨"
             )
             await bot.send_message(
                 BOTLOG_CHATID,
-                f"**BERHASIL MEMBUAT ASSISTANT BOT ANDA DENGAN USERNAME @{username}**",
+                f"**BERHASIL MEMBUAT ASSISTANT BOT KAMU DENGAN USERNAME @{username}**",
             )
             LOGS.info(
-                f"BERHASIL MEMBUAT ASSISTANT BOT ANDA DENGAN USERNAME @{username}")
+                f"BERHASIL MEMBUAT ASSISTANT BOT KAMU DENGAN USERNAME @{username}")
             await bot.send_message(
                 BOTLOG_CHATID,
-                "**SEDANG MERESTART USERBOT HARAP MENUNGGUNYA**",
+                "**SEDANG MERESTART USERBOT TUNGGU SEBENTAR SAYANG.**",
             )
             heroku_var["BOT_TOKEN"] = token
             heroku_var["BOT_USERNAME"] = f"@{username}"
@@ -218,17 +218,17 @@ async def autobot():
         await bot.send_message(bf, f"@{username}")
         await asyncio.sleep(1)
         await bot.send_message(
-            bf, f"✨ Owner ~ {who.first_name} ✨\n\n✨ Powered By ~ @ruangprojects ✨"
+            bf, f"✨ Owner ~ {who.first_name} ✨\n\n✨ Powered By ~ @ruangdiskusikami ✨"
         )
         await bot.send_message(
             BOTLOG_CHATID,
-            f"**BERHASIL MEMBUAT ASSISTANT BOT ANDA DENGAN USERNAME @{username}**",
+            f"**BERHASIL MEMBUAT ASSISTANT BOT KAMU DENGAN USERNAME @{username}**",
         )
         LOGS.info(
-            f"BERHASIL MEMBUAT ASSISTANT BOT DENGAN USERNAME @{username}")
+            f"BERHASIL MEMBUAT ASSISTANT BOT KAMU DENGAN USERNAME @{username}")
         await bot.send_message(
             BOTLOG_CHATID,
-            "**SEDANG MERESTART USERBOT HARAP MENUNGGU.**",
+            "**SEDANG MERESTART USERBOT TUNGGU SEBENTAR SAYANG.**",
         )
         heroku_var["BOT_TOKEN"] = token
         heroku_var["BOT_USERNAME"] = f"@{username}"
