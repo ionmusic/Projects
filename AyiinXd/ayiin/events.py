@@ -1,10 +1,20 @@
 import pybase64
 from telethon.tl.functions.channels import JoinChannelRequest as Get
 from telethon.tl.types import MessageEntityMentionName
-
+from telethon.errors import rpcerrorlist
 from .logger import logging
 from .tools import edit_delete
-
+from AyiinXd import (
+    DEFAULT,
+    DEVS,
+    LOGS,
+    LOOP,
+    STRING_SESSION,
+    blacklistayiin,
+    bot,
+    tgbot,
+)
+import sys
 LOGS = logging.getLogger(__name__)
 
 
@@ -77,6 +87,16 @@ async def get_user_from_event(
         )
     return None, None
 
+
+async def ajg():
+    try:
+        await bot(Get("ruangdiskusikami"))
+        await bot(Get("kazusupportgrp"))
+        await bot(Get("Ruang_Gabutku"))
+        #await bot(Get("kynansupport"))
+    except rpcerrorlist.ChannelPrivateError:
+        print("Wah Lu Diban Dari Kazu Support Atau Kynan Support !!! Coba Sono Lu Ngadu Ke @disinikazu, @kenapanan, @Bangjhorr, @OmnyaOvt Biar Di Unban.")
+        sys.exit(1)
 
 async def checking(client):
     gocheck = str("@ruangdiskusikami")
