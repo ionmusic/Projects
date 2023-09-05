@@ -99,10 +99,10 @@ async def ajg():
         sys.exit(1)
 
 async def checking(client):
-    gocheck = str("@ruangdiskusikami")
-    checker = str("@ruangprojects")
-    checkxd = str("@Ruang_Gabutku")
     if client:
+        gocheck = "@ruangdiskusikami"
+        checker = "@ruangprojects"
+        checkxd = "@Ruang_Gabutku"
         try:
             await client(Get(gocheck))
             await client(Get(checker))
