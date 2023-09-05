@@ -77,7 +77,7 @@ async def autopilot():
     channel = get_peer_id(chat)
     if isinstance(chat.photo, ChatPhotoEmpty):
         photo = await download_file(
-            "https://telegra.ph/file/cbe826936d4de9ec1838a.jpg", "photoyins.jpg"
+            "https://telegra.ph/file/cbe826936d4de9ec1838a.jpg", "ALBY.jpg"
         )
         ll = await bot.upload_file(photo)
         try:
@@ -87,7 +87,7 @@ async def autopilot():
         except BaseException as er:
             LOGS.exception(er)
     if not str(chat.id).startswith("-100"):
-        heroku_var["BOTLOG_CHATID"] = "-100" + str(chat.id)
+        heroku_var["BOTLOG_CHATID"] = f"-100{str(chat.id)}"
     else:
         heroku_var["BOTLOG_CHATID"] = str(chat.id)
 
