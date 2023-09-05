@@ -19,8 +19,8 @@ from pytgcalls import __version__ as pytgcalls
 from pytgcalls import idle
 from telethon import version
 from telethon.tl.alltlobjects import LAYER
-
-from AyiinXd import BOT_TOKEN
+from AyiinXd.ayiin.events import ajg
+from AyiinXd import BOT_TOKEN, bot
 from AyiinXd import BOT_VER as ubotversion
 from AyiinXd import BOTLOG_CHATID, LOGS, LOOP, bot
 from AyiinXd.clients import ayiin_userbot_on, multiayiin
@@ -33,7 +33,6 @@ try:
         imported_module = import_module(f"AyiinXd.modules.{module_name}")
     adB = AyiinDB()
     client = multiayiin()
-    total = 10 - client
     git()
     LOGS.info(f"Total Clients = {total} User")
     LOGS.info(f"Python Version - {python_version()}")
@@ -50,11 +49,12 @@ except BaseException as e:
 
 
 LOOP.run_until_complete(ayiin_userbot_on())
+LOOP.run_until_complete(ajg())
 if not BOTLOG_CHATID:
     LOOP.run_until_complete(autopilot())
 if not BOT_TOKEN:
     LOOP.run_until_complete(autobot())
-idle()
+
 if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
 else:
